@@ -1,53 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <title>CRUD</title>
+  </head>
+  <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <h3>
-                    CRUD Básico
-                    <small class="text-muted">Meu primeiro sistema com operações CRUD básicas</small>
-                </h3>
-            </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>
+            CRUD Básico
+            <small class="text-muted"
+              >Meu primeiro sistema com operações CRUD básicas</small
+            >
+          </h3>
         </div>
-        <div class="row display">
-            <div class="col-md-12 ">
-                <button type="button" class="btn btn-primary">Adicionar itens</button>
-            </div>
+      </div>
+      <div class="row display">
+        <div class="col-md-12">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#modalRegistro"
+          >
+            Adicionar itens
+          </button>
         </div>
-        <div class="row-2">
-            <div class="col-md-12">
-                <table id="tblDados" class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Sobrenome</th>
-                        <th scope="col">Data de Nascimento</th>
-                        <th scope="col">Formação</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      
-                    </tbody>
-                  </table>
-            </div>
+      </div>
+      <!-- primeira linha da tabela -->
+      <div class="row-2">
+        <div class="col-md-12">
+          <table id="tblDados" class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Data de Nascimento</th>
+                <th scope="col">Formação</th>
+                <th scope="col" style="width: 50px"></th>
+                <th scope="col" style="width: 50px"></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="modalRegistro"
+      tabindex="-1"
+      aria-labelledby="modalRegistroLabel"
+      aria-hidden="true"
+    >
+      <!-- bloco dos Registro -->
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalRegistroLabel">Registro</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- Nome -->
+          <div class="modal-body">
+            <input id="hdID" type="hidden" />
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">nome</label>
+                  <input
+                    id="txtNome"
+                    type="text"
+                    class="form-control"
+                    placeholder="digite o nome..."
+                  />
+                </div>
+              </div>
+              <!-- SobreNome -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">SobreNome</label>
+                  <input
+                    id="txtSobreNome"
+                    type="text"
+                    class="form-control"
+                    placeholder="digite o sobrenome..."
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- data de Nascimento -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Data de nascimento</label>
+                  <input
+                    id="txtDtNascimento"
+                    type="date"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">formação</label>
+                  <input
+                    id="txtFormação"
+                    type="text"
+                    class="form-control"
+                    placeholder="digite o formação..."
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+            <button id="btnSalvar" type="button" class="btn btn-primary">
+              Salvar
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-
-
+    <script
+      src="https://kit.fontawesome.com/2d36b8c42c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
     <script src="md.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
