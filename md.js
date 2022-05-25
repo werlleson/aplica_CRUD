@@ -73,6 +73,7 @@ if(!_id || _id == "0"){
   registro.DtNascimento = DtNascimento
   registro.Formacao = Formacao
 
+if (!dados) dados = []
   registro.ID = dados.length + 1
   dados.push(registro)
 }
